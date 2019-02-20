@@ -4,11 +4,12 @@ set -e
 
 BUILD_DIR=$1
 CACHE_DIR=$2
-GPG_TAR_FILENAME="gnupg-1.4.23.tar.bz2"
+GPG_DIR_NAME="gnupg-1.4.23"
+GPG_TAR_FILENAME=${GPG_DIR_NAME}.tar.bz2
 
-wget https://gnupg.org/ftp/gcrypt/gnupg/$GPG_TAR_FILENAME
-tar xjvf $GPG_TAR_FILENAME
-cd $GPG_TAR_FILENAME
+wget https://gnupg.org/ftp/gcrypt/gnupg/${GPG_TAR_FILENAME}
+tar xjvf ${GPG_TAR_FILENAME}
+cd ${GPG_DIR_NAME}
 make
 make install
 /usr/local/bin gpg --version
