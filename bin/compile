@@ -7,10 +7,12 @@ CACHE_DIR=$2
 GPG_DIR_NAME="gnupg-1.4.23"
 GPG_TAR_FILENAME=${GPG_DIR_NAME}.tar.bz2
 
+cd ${BUILD_DIR}
+
 wget https://gnupg.org/ftp/gcrypt/gnupg/${GPG_TAR_FILENAME}
 tar xjvf ${GPG_TAR_FILENAME}
 cd ${GPG_DIR_NAME}
 ./configure
 make
-make install
-/usr/local/bin gpg --version
+make install --prefix=${BUILD_DIR}
+${BUILD_DIR}/gpg --version
