@@ -10,6 +10,7 @@ GPG_TAR_FILENAME=${GPG_DIR_NAME}.tar.bz2
 wget https://gnupg.org/ftp/gcrypt/gnupg/${GPG_TAR_FILENAME}
 tar xjvf ${GPG_TAR_FILENAME}
 cd ${GPG_DIR_NAME}
+./configure
 make
 make install
 /usr/local/bin gpg --version
